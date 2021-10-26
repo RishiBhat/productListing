@@ -1,0 +1,70 @@
+
+
+<a href="{% url 'home' %}"> Add New Data</a> 
+
+<table border="2">
+    <thead>
+        <tr>
+            <th> Name </th>
+            <th> Email </th>
+            <th> City </th>
+            <th> Address </th>
+            <th> Maritial Status </th>
+            <th> Phone Number </th>
+            <th> Image </th>
+            <th> Document </th>
+            <th> Edit </th> 
+            <th> Delete </th> 
+
+        </tr> 
+    </thead>
+<tbody>
+    
+    {% for i in ele reversed%}
+    <tr>
+                <td>
+                    {{i.name}}
+                </td>
+        
+                <td> 
+                    {{i.email}}
+                </td> 
+        
+                <td> 
+                    {{i.city}}
+                </td> 
+        
+                <td> 
+                    {{i.address}}
+                </td> 
+        
+                <td> 
+                    {{i.maritialstatus}}
+                </td>
+        
+                <td> 
+                    {{i.contactno}}
+                </td>   
+    
+                <td> 
+                    <img src="{{i.image.url}}" height="100" width="100"
+                </td> 
+
+                <td> 
+                    
+                    <a href="{{i.biodata.url}}"  target="_blank">Document</a>
+
+                </td>
+                
+                <td>
+                    <a href="{% url 'update' i.id%}">Edit</a> 
+                </td> 
+
+                <td> 
+                    <a href="{% url 'delete' i.id%}"> Delete</a> 
+                </td> 
+            
+    {% endfor %}
+
+</tbody> 
+</table>
